@@ -18,8 +18,8 @@ const Search = ({ location, setLocation }) => {
       }),
     };
   };
-  const onChangeHandler = (e) => {
-    setSearchLocation(e.target.value);
+  const onChangeHandler = (enteredLocation) => {
+    setSearchLocation(enteredLocation);
   };
   return (
     // <div className="border border-black rounded-md p-2">

@@ -11,3 +11,16 @@ export const GEO_API_OPTIONS = {
     "x-rapidapi-host": "wft-geo-db.p.rapidapi.com",
   },
 };
+
+
+export async function fetchCities(inputValue){
+    
+    const geoResponse = await fetch(
+        `${GEO_API_URL}?namePrefix=${inputValue}`,
+        GEO_API_OPTIONS
+      );
+      const geoData = await geoResponse.json();
+      console.log(geoData);
+      return geoData;
+
+}

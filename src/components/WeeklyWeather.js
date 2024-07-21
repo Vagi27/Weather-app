@@ -1,7 +1,11 @@
-const WeeklyWeather = () => {
+const WeeklyWeather = ({ WeeklyConditions }) => {
+  console.log(WeeklyConditions[0].datetime);
   return (
     <>
-      <p>weekly weather </p>
+      <div>
+        weekly weather:
+        <p>{WeeklyConditions[0].datetime}</p>
+      </div>
     </>
   );
 };

@@ -5,8 +5,10 @@ const WeeklyWeather = ({ WeeklyConditions }) => {
   let key=0;
   return (
     <>
-      <div>
-        weekly weather:
+      <div className="text-center text-sm ">
+        <p className="text-center text-sm font-bold">
+          WEEKLY FORECAST
+          </p>
         {/* <p>{WeeklyConditions[0]?.datetime}</p> */}
         {WeeklyConditions.filter((item, index) => index < 7).map(
           (forecastDay,index) => {

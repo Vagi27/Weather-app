@@ -3,9 +3,11 @@ const CurrentWeather = ({ currentConditions }) => {
   console.log(currentConditions);
   return (
     <React.Fragment>
-      <div>
-        current weather:
-        <p>{currentConditions?.feelslike}</p>
+      <div className=" ">
+        <p className=" text-center text-sm font-bold ">CURRENT WEATHER</p>
+        <div>
+          <p>{currentConditions?.feelslike}</p>
+        </div>
       </div>
     </React.Fragment>
   );

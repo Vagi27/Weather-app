@@ -47,9 +47,13 @@ function App() {
     <div className="flex justify-center">
       <div className="border border-black p-4 mt-10 w-3/5 h-3/5 rounded-md ">
         <Search onSearchChange={onSearchChange} />
-        <div className="flex justify-between">
-          <CurrentWeather currentConditions={currentConditions} />
-          <WeeklyWeather WeeklyConditions={WeeklyConditions} />
+        <div className="flex  pt-4  justify-evenly">
+          <div className="p-2 w-1/2">
+            <CurrentWeather currentConditions={currentConditions} />
+          </div>
+          <div className="p-2 w-1/2">
+            <WeeklyWeather WeeklyConditions={WeeklyConditions} />
+          </div>
         </div>
       </div>
       {/* <h1>Api:{location}</h1> */}

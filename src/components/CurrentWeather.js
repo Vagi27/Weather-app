@@ -5,7 +5,7 @@ const CurrentWeather = ({ currentConditions }) => {
     <React.Fragment>
       <div>
         current weather:
-        <p>{currentConditions.feelslike}</p>
+        <p>{currentConditions?.feelslike}</p>
       </div>
     </React.Fragment>
   );

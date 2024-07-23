@@ -1,7 +1,6 @@
 import WeekDay from "./WeekDay";
 
-const WeeklyWeather = ({ WeeklyConditions }) => {
-  console.log(WeeklyConditions[0]?.datetime);
+const WeeklyWeather = ({ weeklyConditions }) => {
   let key=0;
   return (
     <>
@@ -10,7 +9,7 @@ const WeeklyWeather = ({ WeeklyConditions }) => {
           WEEKLY FORECAST
           </p>
         {/* <p>{WeeklyConditions[0]?.datetime}</p> */}
-        {WeeklyConditions.filter((item, index) => index < 7).map(
+        {weeklyConditions.filter((item, index) => index > 0 && index < 7).map(
           (forecastDay,index) => {
             return <WeekDay day={forecastDay} key={key++} />;
           }

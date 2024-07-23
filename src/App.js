@@ -1,18 +1,23 @@
 import "./App.css";
 import Search from "./components/Search";
-import CurrentWeather from "./components/CurrentWeather";
+import TodayWeather from "./components/TodayWeather/TodayWeather";
 import WeeklyWeather from "./components/WeeklyWeather";
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import { WEATHER_API_URL, API_KEY } from "./constants";
 
 function App() {
   // const [location, setLocation] = useState("");
   const [currentConditions, setCurrentConditions] = useState({});
-  const [WeeklyConditions, setWeeklyConditions] = useState([]);
+  const [weeklyConditions, setWeeklyConditions] = useState([]);
+  const [location, SetLocation] = useState("");
 
   const onSearchChange = (enteredLocation) => {
+    // console.log(enteredLocation);
+
     const [latitude, longitude] = enteredLocation.value.split(" ");
-    console.log(latitude, longitude);
+    SetLocation(enteredLocation.label);
+    // console.log(latitude, longitude);
+
     try {
       async function getWeather() {
         const weatherResponse = await fetch(
@@ -20,43 +25,40 @@ function App() {
         );
 
         const weatherData = await weatherResponse.json();
-        setCurrentConditions(weatherData.currentConditions);
-        setWeeklyConditions(weatherData.days);
-
-        console.log(weatherData);
-        // console.log(geoData);
+        setCurrentConditions(weatherData?.days[0] || null);
+        setWeeklyConditions(weatherData?.days || []);
+        // console.log(weatherData);
       }
       getWeather();
     } catch (error) {
       console.error("Error fetching data:", error);
     }
   };
-
-  // useEffect(() => {
-  //   const handler = setTimeout(() => {
-  //     if (location) {
-  //     }
-  //   }, 600);
-
-  //   return () => {
-  //     clearInterval(handler);
-  //   };
-  // }, [location]);
+  const hasData =
+    Object.keys(currentConditions).length > 0 && weeklyConditions.length > 0;
 
   return (
     <div className="flex justify-center">
       <div className="border border-black p-4 mt-10 w-3/5 h-3/5 rounded-md ">
         <Search onSearchChange={onSearchChange} />
-        <div className="flex  pt-4  justify-evenly">
-          <div className="p-2 w-1/2">
-            <CurrentWeather currentConditions={currentConditions} />
+        {hasData ? (
+          <div className="flex pt-4 justify-evenly">
+            <div className="p-2 w-1/2">
+              <TodayWeather
+                conditions={currentConditions}
+                location={location}
+              />
+            </div>
+            <div className="p-2 w-1/2">
+              <WeeklyWeather weeklyConditions={weeklyConditions} />
+            </div>
           </div>
-          <div className="p-2 w-1/2">
-            <WeeklyWeather WeeklyConditions={WeeklyConditions} />
+        ) : (
+          <div className="flex justify-center items-center h-full">
+            <p>No weather data available. Please search for a location.</p>
           </div>
-        </div>
+        )}
       </div>
-      {/* <h1>Api:{location}</h1> */}
     </div>
   );
 }

@@ -20,7 +20,6 @@ export async function fetchCities(inputValue){
         GEO_API_OPTIONS
       );
       const geoData = await geoResponse.json();
-      console.log(geoData);
       return geoData;
 
 }

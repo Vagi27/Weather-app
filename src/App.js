@@ -39,10 +39,10 @@ function App() {
 
   return (
     <div className="flex justify-center">
-      <div className="border border-black p-4 mt-10 w-3/5 h-3/5 rounded-md ">
+      <div className="border border-black p-4  mx-0  w-full h-3/5 rounded-md md:mx-8 lg:w-[1100px] lg:mt-10 ">
         <Search onSearchChange={onSearchChange} />
         {hasData ? (
-          <div className="flex flex-col pt-4 justify-evenly lg:flex-row">
+          <div className="flex flex-col mt-8 pt-4 justify-evenly lg:flex-row">
             <div className="p-2 lg:w-1/2 size-full">
               <TodayWeather
                 conditions={currentConditions}

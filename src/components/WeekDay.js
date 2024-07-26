@@ -16,17 +16,17 @@ const WeekDay = ({ day }) => {
   ][new Date(day.datetime).getDay()];
 
   return (
-    <div className="flex flex-auto m-1 border border-black rounded-md">
-      <div className="p-2 m-1 w-48 flex-auto text-start">
+    <div className="flex  m-1 border border-black rounded-md justify-between  text-xs sm:text-base ">
+      <div className="p-1 m-1 basis-1/3 text-start">
         <div> {dayOfWeek}</div>
-        <div className="text-xs"> {condition}</div>
+        <div className=""> {condition}</div>
         {/* <div> {day?.datetime}</div> */}
       </div>
-      <div className="p-2 m-1 w-24 flex-auto text-sm">
+      <div className="p-1 m-1  basis-1/3 text-center ">
         <div>{farenToCelcius(day?.temp)}°C</div>
         <div>{day?.cloudcover}%</div>
       </div>
-      <div className="p-2 m-1 w-24 flex-auto text-sm">
+      <div className="p-1 m-1  basis-1/3 text-center ">
         <div>{day?.windspeed} km/h</div>
         <div>{day?.humidity}%</div>
       </div>

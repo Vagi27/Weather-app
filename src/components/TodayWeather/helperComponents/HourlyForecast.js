@@ -1,11 +1,27 @@
 import React from "react";
-
-const HourlyForecast = () => {
+import { farenToCelcius } from "../../../Utility/utility";
+import { getTodayWeatherForecast } from "../../../Utility/utility";
+const HourlyForecast = ({ hours }) => {
+  console.log(hours);
+  const forecastHours = getTodayWeatherForecast(hours);
+  console.log(forecastHours);
   return (
-    <div >
-      <p className="text-center text-sm font-bold">HourlyForecast </p>
-      <div className="mt-4">
+    <div className="text-center">
+      <p className=" text-sm font-bold">TODAY'S FORECAST </p>
+      <p className="text-xs">available forecasts</p>
 
+      <div className="flex justify-evenly mt-4">
+        {forecastHours
+          .filter((item,index) => index % 3 === 0)
+          .map((item, index) => {
+            return (
+              <div className="m-2 p-2">
+                <p>{item.datetime.substring(0, 5)}</p>
+                <img src={item.icon} alt={item.conditions}></img>
+                <p>{farenToCelcius(item.temp)} °C</p>
+              </div>
+            );
+          })}
       </div>
     </div>
   );

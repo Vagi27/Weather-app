@@ -5,11 +5,11 @@ import HourlyForecast from "./helperComponents/HourlyForecast";
 
 const TodayWeather = ({ conditions, location }) => {
   return (
-    <React.Fragment>
+    <div className="flex flex-col justify-evenly">
       <CurrentConditions location={location} todayConditions={conditions} />
       <AirConditions conditions={conditions} />
       <HourlyForecast hours={conditions?.hours} />
-    </React.Fragment>
+    </div>
   );
 };
 export default TodayWeather;

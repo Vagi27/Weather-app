@@ -9,7 +9,7 @@ const CurrentConditions = ({ todayConditions, location }) => {
   return (
     <div className="mb-6">
       <p className="text-center text-sm font-bold">CURRENT WEATHER</p>
-      <div className="flex mt-4 justify-between">
+      <div className="flex mt-4   font-semibold justify-around">
         <div className="p-2 ">
           <p>{location}</p>
           <p> {datetime}</p>

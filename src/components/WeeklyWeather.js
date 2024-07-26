@@ -4,7 +4,7 @@ const WeeklyWeather = ({ weeklyConditions }) => {
   let key=0;
   return (
     <>
-      <div className="text-center text-sm ">
+      <div className="text-center text-base font-semibold ">
         <p className="text-center text-sm font-bold">
           WEEKLY FORECAST
           </p>

@@ -6,8 +6,8 @@ const AirConditions = ({conditions}) => {
   const { feelslike, windspeed, cloudcover, humidity } = conditions;
   return (
     <div className="mb-6">
-      <p className="text-center text-sm font-bold">Air Conditions </p>
-      <div className=" mt-4 text-sm text-center grid grid-cols-4 gap-2">
+      <p className="text-center text-base font-bold">AIR CONDITIONS </p>
+      <div className=" mt-4  font-semibold sm:text-base text-sm text-center grid grid-cols-4 gap-2 justify-evenly">
         <div>
           <p>Feels Like</p>
           <p>{farenToCelcius(feelslike)}°C</p>

@@ -8,16 +8,16 @@ const HourlyForecast = ({ hours }) => {
   return (
     <div className="text-center">
       <p className=" text-sm font-bold">TODAY'S FORECAST </p>
-      <p className="text-xs">available forecasts</p>
+      <p className="text-sm">available forecasts</p>
 
-      <div className="flex justify-evenly mt-4">
+      <div className="flex justify-evenly mt-4 font-semibold ">
         {forecastHours
           .filter((item,index) => index % 3 === 0)
           .map((item, index) => {
             return (
               <div className="m-2 p-2">
                 <p>{item.datetime.substring(0, 5)}</p>
-                <img src={item.icon} alt={item.conditions}></img>
+                <img className=" text-xs md:text-sm"src={item.icon} alt={item.conditions}></img>
                 <p>{farenToCelcius(item.temp)} °C</p>
               </div>
             );

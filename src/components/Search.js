@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import { AsyncPaginate } from "react-select-async-paginate";
 import { fetchCities } from "../constants";
 
@@ -24,7 +24,6 @@ const Search = ({ onSearchChange }) => {
     onSearchChange(enteredLocation);
   };
   return (
-    // <div className="border border-black rounded-md p-2">
     <AsyncPaginate
       placeholder="Search for cities"
       debounceTimeout={300}
@@ -32,7 +31,6 @@ const Search = ({ onSearchChange }) => {
       onChange={onChangeHandler}
       loadOptions={loadOptions}
     />
-    // </div>
   );
 };
 export default Search;

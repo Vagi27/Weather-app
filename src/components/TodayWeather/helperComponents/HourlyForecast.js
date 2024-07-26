@@ -6,18 +6,18 @@ const HourlyForecast = ({ hours }) => {
   const forecastHours = getTodayWeatherForecast(hours);
   console.log(forecastHours);
   return (
-    <div className="text-center">
+    <div className="text-center ">
       <p className=" text-sm font-bold">TODAY'S FORECAST </p>
-      <p className="text-sm">available forecasts</p>
+      <p className="text-xs sm:text-sm">available forecasts</p>
 
-      <div className="flex justify-evenly mt-4 font-semibold ">
+      <div className="flex justify-evenly mt-4 font-semibold text-xs sm:text-sm">
         {forecastHours
           .filter((item,index) => index % 3 === 0)
           .map((item, index) => {
             return (
               <div className="m-2 p-2">
                 <p>{item.datetime.substring(0, 5)}</p>
-                <img className=" text-xs md:text-sm"src={item.icon} alt={item.conditions}></img>
+                <img className=" text-xs sm:text-sm"src={item.icon} alt={item.conditions}></img>
                 <p>{farenToCelcius(item.temp)} °C</p>
               </div>
             );

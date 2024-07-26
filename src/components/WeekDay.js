@@ -16,10 +16,10 @@ const WeekDay = ({ day }) => {
   ][new Date(day.datetime).getDay()];
 
   return (
-    <div className="flex  m-1 border border-black rounded-md justify-between  text-base ">
+    <div className="flex  m-1 border border-black rounded-md justify-between  text-xs sm:text-base ">
       <div className="p-1 m-1 basis-1/3 text-start">
         <div> {dayOfWeek}</div>
-        <div className="text-sm"> {condition}</div>
+        <div className=""> {condition}</div>
         {/* <div> {day?.datetime}</div> */}
       </div>
       <div className="p-1 m-1  basis-1/3 text-center ">

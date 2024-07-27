@@ -4,9 +4,9 @@ export const farenToCelcius = (farenheit) => {
 
 export const getTodayWeatherForecast=(hours)=>{
   let dateNow=new Date();
-  console.log(dateNow)
+  // console.log(dateNow)
   let timeNow=Math.floor(dateNow.getTime()/1000);
-  console.log(timeNow);
+  // console.log(timeNow);
 
   return hours.filter((hour)=>{
     return hour.datetimeEpoch > timeNow;

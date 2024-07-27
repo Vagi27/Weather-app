@@ -28,22 +28,22 @@ const WeekDay = ({ day }) => {
 
       <div className="p-1 m-1  basis-1/3 text-center  ">
         <div className="flex p-1 justify-center">
-          <img className="w-4  mr-1 " src={temperatureIcon}></img>
+          <img className="w-4  mr-1 " src={temperatureIcon} alt=""></img>
           <p>{farenToCelcius(day?.temp)} °C</p>
         </div>
         <div className="flex p-1 justify-center">
-          <img className="w-4  mr-1 " src={windIcon}></img>
+          <img className="w-5 mr-1 " src={cloudIcon} alt=""></img>
           <p>{day?.cloudcover} % </p>
         </div>
       </div>
 
       <div className="p-1 m-1  basis-1/3 text-center  ">
         <div className="flex p-1 justify-center">
-          <img className="w-4  mr-1 " src={windIcon}></img>
+          <img className="w-4  mr-1 " src={windIcon} alt=""></img>
           <p>{day?.windspeed} km/h</p>
         </div>
         <div className="flex p-1 justify-center">
-          <img className="w-4  mr-1 " src={humidityIcon}></img>
+          <img className="w-4  mr-1 " src={humidityIcon} alt=""></img>
           <p>{day?.humidity} % </p>
         </div>
       </div>

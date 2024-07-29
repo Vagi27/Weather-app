@@ -48,6 +48,7 @@ function App() {
     }
     fetchWeather(latitude, longitude, cacheKey);
   };
+  
   const hasData =
     Object.keys(currentConditions).length > 0 && weeklyConditions.length > 0;
 

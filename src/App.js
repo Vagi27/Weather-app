@@ -54,7 +54,7 @@ function App() {
 
   return (
     <div className="flex justify-center min-h-fit ">
-      <div className="border border-black p-4  mx-0  w-full h-3/5 rounded-md md:mx-8 lg:w-[1100px] lg:mt-10 shadow-md ">
+      <div className="   p-4  mx-0  w-full h-3/5 rounded-md md:mx-8 lg:w-[1100px] lg:mt-10 shadow-sm  shadow-gray-300 sha">
         <Search onSearchChange={onSearchChange} />
         {hasData ? (
           <div className="flex flex-col mt-8 pt-4 justify-evenly lg:flex-row">
@@ -69,7 +69,7 @@ function App() {
             </div>
           </div>
         ) : (
-          <div className="flex justify-center items-center h-full">
+          <div className="flex justify-center items-center h-full min-h-[550px]">
             <p>No weather data available. Please search for a location.</p>
           </div>
         )}

@@ -1,0 +1,19 @@
+{
+  "files": {
+    "main.css": "/Vagi27/Weather-app/static/css/main.d2229294.css",
+    "main.js": "/Vagi27/Weather-app/static/js/main.599b2ec9.js",
+    "static/js/453.0ccb7fb4.chunk.js": "/Vagi27/Weather-app/static/js/453.0ccb7fb4.chunk.js",
+    "static/media/humidity.png": "/Vagi27/Weather-app/static/media/humidity.3f4091eabd51df3e8808.png",
+    "static/media/wind.png": "/Vagi27/Weather-app/static/media/wind.51b8a36c8909b77f0ead.png",
+    "static/media/temperature.png": "/Vagi27/Weather-app/static/media/temperature.add140b372cbd6f708a7.png",
+    "static/media/cloud.png": "/Vagi27/Weather-app/static/media/cloud.a1dd2f5daca5f75a4073.png",
+    "index.html": "/Vagi27/Weather-app/index.html",
+    "main.d2229294.css.map": "/Vagi27/Weather-app/static/css/main.d2229294.css.map",
+    "main.599b2ec9.js.map": "/Vagi27/Weather-app/static/js/main.599b2ec9.js.map",
+    "453.0ccb7fb4.chunk.js.map": "/Vagi27/Weather-app/static/js/453.0ccb7fb4.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.d2229294.css",
+    "static/js/main.599b2ec9.js"
+  ]
+}

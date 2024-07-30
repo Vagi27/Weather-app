@@ -22,7 +22,7 @@ const WeekDay = ({ day }) => {
     <div className="flex  m-1 border border-black rounded-md justify-between  text-xs sm:text-sm lg:text-base ">
       <div className="p-1 m-1 basis-1/3 text-start">
         <p> {dayOfWeek}</p>
-        <p className="font-normal"> {condition}</p>
+        <p className="font-normal italic"> {condition}</p>
         {/* <div> {day?.datetime}</div> */}
       </div>
 

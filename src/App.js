@@ -5,6 +5,26 @@ import WeeklyWeather from "./components/WeeklyWeather";
 import { useState } from "react";
 import { WEATHER_API_URL, API_KEY } from "./constants";
 
+const fetchWeather = async (
+  latitude,
+  longitude,
+  setCurrentConditions,
+  setWeeklyConditions
+) => {
+  try {
+    const weatherResponse = await fetch(
+      `${WEATHER_API_URL} ${latitude},${longitude}${API_KEY}`
+    );
+
+    const weatherData = await weatherResponse.json();
+    setCurrentConditions(weatherData?.days[0] || null);
+    setWeeklyConditions(weatherData?.days || []);
+    // console.log(weatherData);
+  } catch (error) {
+    console.error("Error fetching data:", error);
+  }
+};
+
 function App() {
   // const [location, setLocation] = useState("");
   const [currentConditions, setCurrentConditions] = useState({});
@@ -17,29 +37,19 @@ function App() {
     const [latitude, longitude] = enteredLocation.value.split(" ");
     SetLocation(enteredLocation.label);
     // console.log(latitude, longitude);
-
-    try {
-      async function getWeather() {
-        const weatherResponse = await fetch(
-          `${WEATHER_API_URL} ${latitude},${longitude}${API_KEY}`
-        );
-
-        const weatherData = await weatherResponse.json();
-        setCurrentConditions(weatherData?.days[0] || null);
-        setWeeklyConditions(weatherData?.days || []);
-        // console.log(weatherData);
-      }
-      getWeather();
-    } catch (error) {
-      console.error("Error fetching data:", error);
-    }
+    fetchWeather(
+      latitude,
+      longitude,
+      setCurrentConditions,
+      setWeeklyConditions
+    );
   };
   const hasData =
     Object.keys(currentConditions).length > 0 && weeklyConditions.length > 0;
 
   return (
-    <div className="flex justify-center">
-      <div className="border border-black p-4  mx-0  w-full h-3/5 rounded-md md:mx-8 lg:w-[1100px] lg:mt-10 ">
+    <div className="flex justify-center min-h-fit ">
+      <div className="border border-black p-4  mx-0  w-full h-3/5 rounded-md md:mx-8 lg:w-[1100px] lg:mt-10 shadow-md ">
         <Search onSearchChange={onSearchChange} />
         {hasData ? (
           <div className="flex flex-col mt-8 pt-4 justify-evenly lg:flex-row">

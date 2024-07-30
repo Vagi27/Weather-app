@@ -1,14 +1,18 @@
-import React from 'react';
-import ReactDOM from 'react-dom/client';
-import './index.css';
-import App from './App';
-import reportWebVitals from './reportWebVitals';
+import React from "react";
+import ReactDOM from "react-dom/client";
+import "./index.css";
+import App from "./App";
+import reportWebVitals from "./reportWebVitals";
 
-const root = ReactDOM.createRoot(document.getElementById('root'));
+const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
-  <React.StrictMode>
+  <div className="w-screen min-h-screen text-white "
+    style={{
+      background: "linear-gradient(80deg, #000428, #004e92)",
+    }}
+  >
     <App />
-  </React.StrictMode>
+  </div>
 );
 
 // If you want to start measuring performance in your app, pass a function

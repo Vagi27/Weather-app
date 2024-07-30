@@ -20,7 +20,7 @@ const CurrentConditions = ({ todayConditions, location }) => {
           <p className=" text-xs" >{expected}</p>
         </div>
         <div className=" grid p-2  place-items-center">
-          <p>{icon} icon</p>
+          <p className=" font-normal italic"> {icon} </p>
         </div>
       </div>
     </div>

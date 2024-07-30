@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { AsyncPaginate } from "react-select-async-paginate";
 import { fetchCities } from "../constants";
+import githubIcon from "../assets/githubIcon.png";
 
 const Search = ({ onSearchChange }) => {
   const [searchLocation, setSearchLocation] = useState("");
@@ -24,13 +25,28 @@ const Search = ({ onSearchChange }) => {
     onSearchChange(enteredLocation);
   };
   return (
-    <AsyncPaginate
-      placeholder="Search for cities"
-      debounceTimeout={300}
-      value={searchLocation}
-      onChange={onChangeHandler}
-      loadOptions={loadOptions}
-    />
+    <div>
+      <div className="flex justify-between mb-2">
+        <h3> THE WEATHER FORECASTING</h3>
+
+        <a
+          href="https://github.com/Vagi27/Weather-app"
+          target="_blank"
+          rel="noreferrer noopener"
+        >
+          <img className="w-6 " src={githubIcon} alt="github Icon" />
+        </a>
+      </div>
+      <div className="text-black">
+        <AsyncPaginate
+          placeholder="Search for cities"
+          debounceTimeout={300}
+          value={searchLocation}
+          onChange={onChangeHandler}
+          loadOptions={loadOptions}
+        />
+      </div>
+    </div>
   );
 };
 export default Search;

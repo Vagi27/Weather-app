@@ -19,7 +19,7 @@ const HourlyForecast = ({ hours }) => {
       <div className="flex justify-evenly mt-4 font-semibold text-xs sm:text-sm">
         {filteredForecasts.map((item, index) => {
           return (
-            <div className="m-2 p-2" key={key++}>
+            <div className="m-2 p-2 w-24 flex flex-col flex-auto" key={key++}>
               <p>{item.datetime.substring(0, 5)}</p>
               <p className=" italic font-normal text-xs sm:text-sm">{item.conditions}</p>
               <p>{farenToCelcius(item.temp)} °C</p>

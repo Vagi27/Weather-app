@@ -2,48 +2,53 @@ import "./App.css";
 import Search from "./components/Search";
 import TodayWeather from "./components/TodayWeather/TodayWeather";
 import WeeklyWeather from "./components/WeeklyWeather";
-import { useState } from "react";
+import { useState,useEffect } from "react";
 import { WEATHER_API_URL, API_KEY } from "./constants";
 
-const fetchWeather = async (
-  latitude,
-  longitude,
-  setCurrentConditions,
-  setWeeklyConditions
-) => {
-  try {
-    const weatherResponse = await fetch(
-      `${WEATHER_API_URL} ${latitude},${longitude}${API_KEY}`
-    );
-
-    const weatherData = await weatherResponse.json();
-    setCurrentConditions(weatherData?.days[0] || null);
-    setWeeklyConditions(weatherData?.days || []);
-    // console.log(weatherData);
-  } catch (error) {
-    console.error("Error fetching data:", error);
-  }
-};
-
 function App() {
-  // const [location, setLocation] = useState("");
   const [currentConditions, setCurrentConditions] = useState({});
   const [weeklyConditions, setWeeklyConditions] = useState([]);
   const [location, SetLocation] = useState("");
 
-  const onSearchChange = (enteredLocation) => {
-    // console.log(enteredLocation);
+  useEffect(() => {
+    return () => {
+      localStorage.clear();
+    };
+  }, []);
 
+  const fetchWeather = async (latitude, longitude, cacheKey) => {
+    try {
+      const weatherResponse = await fetch(
+        `${WEATHER_API_URL} ${latitude},${longitude}${API_KEY}`
+      );
+      const weatherData = await weatherResponse.json();
+      setCurrentConditions(weatherData?.days[0] || {});
+      setWeeklyConditions(weatherData?.days || []);
+      localStorage.setItem(cacheKey, JSON.stringify(weatherData));
+    } catch (error) {
+      console.error("Error fetching data:", error);
+    }
+  };
+
+  const onSearchChange = (enteredLocation) => {
     const [latitude, longitude] = enteredLocation.value.split(" ");
     SetLocation(enteredLocation.label);
     // console.log(latitude, longitude);
-    fetchWeather(
-      latitude,
-      longitude,
-      setCurrentConditions,
-      setWeeklyConditions
-    );
+
+    let cacheKey = `cityData-${enteredLocation.label}`;
+    const cachedCity = localStorage.getItem(cacheKey);
+
+    if (cachedCity) {
+      // console.log(cacheKey);
+      const weatherData = JSON.parse(cachedCity);
+      // console.log(weatherData);
+      setCurrentConditions(weatherData?.days[0]);
+      setWeeklyConditions(weatherData?.days);
+      return;
+    }
+    fetchWeather(latitude, longitude, cacheKey);
   };
+
   const hasData =
     Object.keys(currentConditions).length > 0 && weeklyConditions.length > 0;
 

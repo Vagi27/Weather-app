@@ -26,9 +26,8 @@ const Search = ({ onSearchChange }) => {
   };
   return (
     <div>
-      <div className="flex justify-between mb-2">
-        <h3> THE WEATHER FORECASTING</h3>
-
+      <div className="flex justify-between mb-3 px-3">
+        <h3 className="text-lg"> THE WEATHER FORECASTING</h3>
         <a
           href="https://github.com/Vagi27/Weather-app"
           target="_blank"

@@ -58,7 +58,7 @@ function App() {
         <Search onSearchChange={onSearchChange} />
         {hasData ? (
           <div className="flex flex-col mt-8 pt-4 justify-evenly lg:flex-row">
-            <div className="p-2 lg:w-1/2 size-full">
+            <div className="p-2 lg:w-1/2 ">
               <TodayWeather
                 conditions={currentConditions}
                 location={location}

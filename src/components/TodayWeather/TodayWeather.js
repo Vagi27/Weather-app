@@ -5,7 +5,7 @@ import HourlyForecast from "./helperComponents/HourlyForecast";
 
 const TodayWeather = ({ conditions, location }) => {
   return (
-    <div className="flex flex-col justify-evenly">
+    <div className="flex flex-col justify-between lg:h-full ">
       <CurrentConditions location={location} todayConditions={conditions} />
       <AirConditions conditions={conditions} />
       <HourlyForecast hours={conditions?.hours} />

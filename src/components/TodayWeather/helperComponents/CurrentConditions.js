@@ -7,7 +7,7 @@ const CurrentConditions = ({ todayConditions, location }) => {
   // console.log(location);
 
   return (
-    <div className="mb-6">
+    <div className="mb-6 basis-1/3">
       <p className="text-center text-sm font-bold">CURRENT WEATHER</p>
       <div className="flex mt-4  text-xs sm:text-base font-semibold justify-around ">
         <div className="p-2 ">

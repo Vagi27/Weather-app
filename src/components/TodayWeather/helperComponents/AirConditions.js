@@ -6,7 +6,7 @@ const AirConditions = ({ conditions }) => {
   // console.log(conditions);
   const { feelslike, windspeed, cloudcover, humidity } = conditions;
   return (
-    <div className="mb-6">
+    <div className="mb-6 basis-1/3">
       <p className="text-center text-base font-bold">AIR CONDITIONS </p>
       <div className=" mt-4 items-center font-semibold sm:text-base text-xs text-center grid grid-cols-4 gap-2 justify-evenly">
         <div className="flex flex-col  items-center">

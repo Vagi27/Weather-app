@@ -10,7 +10,7 @@ const HourlyForecast = ({ hours }) => {
     .filter((item, index) => item.datetime.substring(0, 2) % 3 === 0)
     .slice(0, 4); // Limit to 4 forecasts
   return (
-    <div className="text-center ">
+    <div className="text-center basis-1/3 ">
       <p className=" text-sm font-bold">TODAY'S FORECAST </p>
       <p className="text-xs font-semibold">
         {filteredForecasts.length}-Available Forecasts

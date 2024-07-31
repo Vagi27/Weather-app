@@ -6,13 +6,17 @@ import reportWebVitals from "./reportWebVitals";
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
-  <div className="w-screen min-h-screen text-white "
-    style={{
-      background: "linear-gradient(90deg, rgba(9,26,74,1) 3%, rgba(21,68,135,1) 53%)",
-    }}
-  >
-    <App />
-  </div>
+  <React.StrictMode>
+    <div
+      className="w-screen min-h-screen text-white "
+      style={{
+        background:
+          "linear-gradient(90deg, rgba(9,26,74,1) 3%, rgba(21,68,135,1) 53%)",
+      }}
+    >
+      <App />
+    </div>
+   </React.StrictMode> 
 );
 
 // If you want to start measuring performance in your app, pass a function

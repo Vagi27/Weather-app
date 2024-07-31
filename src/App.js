@@ -2,7 +2,7 @@ import "./App.css";
 import Search from "./components/Search";
 import TodayWeather from "./components/TodayWeather/TodayWeather";
 import WeeklyWeather from "./components/WeeklyWeather";
-import { useState,useEffect } from "react";
+import { useState, useEffect } from "react";
 import { WEATHER_API_URL, API_KEY } from "./constants";
 
 function App() {
@@ -11,9 +11,10 @@ function App() {
   const [location, SetLocation] = useState("");
 
   useEffect(() => {
-    return () => {
-      localStorage.clear();
-    };
+    // Log to see if the effect runs
+    // console.log("Component mounted, setting up cleanup.");
+    localStorage.clear();
+    // Cleanup function to run on unmount
   }, []);
 
   const fetchWeather = async (latitude, longitude, cacheKey) => {

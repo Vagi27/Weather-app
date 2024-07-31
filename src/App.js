@@ -2,20 +2,17 @@ import "./App.css";
 import Search from "./components/Search";
 import TodayWeather from "./components/TodayWeather/TodayWeather";
 import WeeklyWeather from "./components/WeeklyWeather";
-import { useState, useEffect } from "react";
+import { useState } from "react";
 import { WEATHER_API_URL, API_KEY } from "./constants";
+import { getWithExpiry,setWithExpiry } from "./Utility/sessionStorage";
+
+const TTL = 30* 60 * 1000; //Time To Live -> 30 min in milliseconds
 
 function App() {
   const [currentConditions, setCurrentConditions] = useState({});
   const [weeklyConditions, setWeeklyConditions] = useState([]);
   const [location, SetLocation] = useState("");
 
-  useEffect(() => {
-    // Log to see if the effect runs
-    // console.log("Component mounted, setting up cleanup.");
-    localStorage.clear();
-    // Cleanup function to run on unmount
-  }, []);
 
   const fetchWeather = async (latitude, longitude, cacheKey) => {
     try {
@@ -25,7 +22,7 @@ function App() {
       const weatherData = await weatherResponse.json();
       setCurrentConditions(weatherData?.days[0] || {});
       setWeeklyConditions(weatherData?.days || []);
-      localStorage.setItem(cacheKey, JSON.stringify(weatherData));
+      setWithExpiry(cacheKey, weatherData, TTL);
     } catch (error) {
       console.error("Error fetching data:", error);
     }
@@ -37,11 +34,11 @@ function App() {
     // console.log(latitude, longitude);
 
     let cacheKey = `cityData-${enteredLocation.label}`;
-    const cachedCity = localStorage.getItem(cacheKey);
+    const cachedCity = getWithExpiry(cacheKey);
 
     if (cachedCity) {
       // console.log(cacheKey);
-      const weatherData = JSON.parse(cachedCity);
+      const weatherData = cachedCity;
       // console.log(weatherData);
       setCurrentConditions(weatherData?.days[0]);
       setWeeklyConditions(weatherData?.days);
@@ -80,18 +77,3 @@ function App() {
 }
 
 export default App;
-
-/* 
-- app component:
-  - Search location
-    - input box
-    - dropdown suggestion box
-    - some fixed locations(not ideally )
-    - filtering of location in drop down as search continues
-    - (Api call only when selected from drop down)
-    - delay of some ms in making api call 
-    - caching of searched locations
-    - 
-  - current weather
-  - weekly forecast
-*/

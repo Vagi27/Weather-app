@@ -68,7 +68,7 @@ function App() {
           </div>
         ) : (
           <div className="flex justify-center items-center h-full min-h-[550px]">
-            <p>No weather data available. Please search for a location.</p>
+            <p> Please search for a location.</p>
           </div>
         )}
       </div>

@@ -32,7 +32,7 @@ const WeekDay = ({ day }) => {
       <div className="px-1 m-1  basis-1/3 text-center  ">
         <div className="flex p-1 items-center justify-center">
           <svg
-          className="mr-2"
+            className="mr-2"
             xmlns="http://www.w3.org/2000/svg"
             height="20px"
             viewBox="0 -960 960 960"
@@ -63,7 +63,7 @@ const WeekDay = ({ day }) => {
       <div className="px-1 m-1  basis-1/3 text-center  ">
         <div className="flex p-1 items-center justify-center">
           <svg
-          className="mr-2"
+            className="mr-2"
             xmlns="http://www.w3.org/2000/svg"
             height="20px"
             viewBox="0 -960 960 960"
@@ -75,7 +75,7 @@ const WeekDay = ({ day }) => {
           {/* <img className="w-4  mr-1 " src={windIcon} alt=""></img> */}
           <p>{day?.windspeed} km/h</p>
         </div>
-        <div className="flex p-1 justify-center">
+        <div className="flex p-1 items-center justify-center">
           <svg
           className="mr-1"
             xmlns="http://www.w3.org/2000/svg"
